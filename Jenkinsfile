@@ -49,9 +49,6 @@ pipeline {
     }
 
     post {
-        success {
-                slackSend "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
-            }
         always {
             deleteDir()
             sh "sudo docker rmi 416827206337.dkr.ecr.us-east-1.amazonaws.com/vote:\${BUILD_NUMBER}"
