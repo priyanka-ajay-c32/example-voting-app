@@ -53,5 +53,8 @@ pipeline {
             deleteDir()
             sh "sudo docker rmi 416827206337.dkr.ecr.us-east-1.amazonaws.com/vote:\${BUILD_NUMBER}"
             }
+        success {
+                slackSend "Build deployed successfully"
+            }
         }
 }
