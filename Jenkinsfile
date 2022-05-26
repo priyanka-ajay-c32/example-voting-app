@@ -2,7 +2,9 @@ pipeline {
     agent {
       label 'worker-cloud'
     }
-
+    triggers {
+        githubPush()
+    }
     options {
             buildDiscarder(logRotator(numToKeepStr: '10'))
             disableConcurrentBuilds()
